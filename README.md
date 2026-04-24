@@ -58,12 +58,16 @@ Many creative coding examples show visuals only. This project focuses on end-to-
 
 ## Tech Stack
 
+<div align="center">
+
+| <img src="https://techstack-generator.vercel.app/python-icon.svg" width="65" /> | <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opencv/opencv-original.svg" width="65" /> | <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg" width="65" /> | <img src="https://upload.wikimedia.org/wikipedia/commons/b/b2/SCIPY_2.svg" width="65" /> | <img src="https://raw.githubusercontent.com/Zulko/moviepy/master/docs/_static/logo_small.jpeg" width="65" /> | <img src="https://cdn.simpleicons.org/ffmpeg/007808" width="65" /> |
+| :-----------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------: |
+|                                   **Python**                                    |                                               **OpenCV**                                               |                                              **NumPy**                                               |                                        **SciPy**                                         |                                                 **MoviePy**                                                  |                             **FFmpeg**                             |
+
+</div>
+
 - Python 3.10+
-- OpenCV (`opencv-python`)
-- NumPy
-- SciPy
-- MoviePy
-- FFmpeg (system dependency for audio muxing)
+- FFmpeg installed on system PATH is recommended for audio muxing in the advanced pipeline
 
 ## Project Structure
 
