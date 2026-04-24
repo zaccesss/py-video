@@ -27,7 +27,9 @@ This repository is designed as a practical learning lab:
 	<a href="#license">License</a>
 </p>
 
-## Overview
+<a id="overview"></a>
+
+## 1. Overview
 
 Python Animation Video Lab is a creator-focused starter project for building short-form animated content with code.
 It helps you move from one-file scripts to reusable scene systems while still shipping real videos quickly.
@@ -39,7 +41,9 @@ Target outcomes:
 - Generate and sync audio with video
 - Produce reusable workflow patterns for TikTok, Reels, Shorts, and long-form edits
 
-## Why This Project
+<a id="why-this-project"></a>
+
+## 2. Why This Project
 
 Many creative coding examples show visuals only. This project focuses on end-to-end content production:
 
@@ -49,7 +53,9 @@ Many creative coding examples show visuals only. This project focuses on end-to-
 - Audio generation and muxing
 - Practical output handling for publish workflows
 
-## Features
+<a id="features"></a>
+
+## 3. Features
 
 - Vertical video rendering (1080x1920) for short-form platforms
 - Procedural gradients, particles, wave fields, and wireframe motion
@@ -59,7 +65,9 @@ Many creative coding examples show visuals only. This project focuses on end-to-
 - FFmpeg integration for audio/video merge
 - Clean output directory for generated assets
 
-## Tech Stack
+<a id="tech-stack"></a>
+
+## 4. Tech Stack
 
 <div align="center">
 
@@ -72,7 +80,9 @@ Many creative coding examples show visuals only. This project focuses on end-to-
 - Python 3.10+
 - FFmpeg installed on system PATH is recommended for audio muxing in the advanced pipeline
 
-## Project Structure
+<a id="project-structure"></a>
+
+## 5. Project Structure
 
 ```text
 py-video/
@@ -103,28 +113,30 @@ py-video/
 
 ### Structure Details
 
-| Path | Type | Purpose |
-| --- | --- | --- |
-| src/ | Folder | Core Python scripts that generate videos and audio. |
-| src/simple_animation.py | File | Beginner script for frame-by-frame OpenCV animation in vertical format. |
-| src/python_video_test.py | File | Intermediate MoviePy example for timeline/text compositing. |
-| src/advanced_video.py | File | Advanced scene-based renderer with procedural soundtrack and FFmpeg muxing. |
-| docs/ | Folder | Documentation and visual learning resources. |
-| docs/learning_path.md | File | Learning progression and practice tasks for building animation skills. |
-| docs/previews/ | Folder | Short preview clips used for showcasing output quickly. |
-| scripts/ | Folder | Workflow helpers for local execution. |
-| scripts/run_all.ps1 | File | Runs all demo scripts in sequence from PowerShell. |
-| output/ | Folder | Rendered assets created by scripts (video/audio outputs). |
-| requirements.txt | File | Python dependency list required for all scripts. |
-| .gitignore | File | Prevents generated outputs and cache files from polluting commits. |
-| .editorconfig | File | Standardizes editor behavior across environments. |
-| .gitattributes | File | Enforces line ending strategy and binary handling in git. |
-| CHANGELOG.md | File | Versioned log of notable project changes. |
-| CONTRIBUTING.md | File | Contribution process and commit style guidance. |
-| LICENSE | File | MIT license terms for project use and distribution. |
-| README.md | File | Main project overview, setup, usage, and roadmap. |
+| Path                     | Type   | Purpose                                                                     |
+| ------------------------ | ------ | --------------------------------------------------------------------------- |
+| src/                     | Folder | Core Python scripts that generate videos and audio.                         |
+| src/simple_animation.py  | File   | Beginner script for frame-by-frame OpenCV animation in vertical format.     |
+| src/python_video_test.py | File   | Intermediate MoviePy example for timeline/text compositing.                 |
+| src/advanced_video.py    | File   | Advanced scene-based renderer with procedural soundtrack and FFmpeg muxing. |
+| docs/                    | Folder | Documentation and visual learning resources.                                |
+| docs/learning_path.md    | File   | Learning progression and practice tasks for building animation skills.      |
+| docs/previews/           | Folder | Short preview clips used for showcasing output quickly.                     |
+| scripts/                 | Folder | Workflow helpers for local execution.                                       |
+| scripts/run_all.ps1      | File   | Runs all demo scripts in sequence from PowerShell.                          |
+| output/                  | Folder | Rendered assets created by scripts (video/audio outputs).                   |
+| requirements.txt         | File   | Python dependency list required for all scripts.                            |
+| .gitignore               | File   | Prevents generated outputs and cache files from polluting commits.          |
+| .editorconfig            | File   | Standardizes editor behavior across environments.                           |
+| .gitattributes           | File   | Enforces line ending strategy and binary handling in git.                   |
+| CHANGELOG.md             | File   | Versioned log of notable project changes.                                   |
+| CONTRIBUTING.md          | File   | Contribution process and commit style guidance.                             |
+| LICENSE                  | File   | MIT license terms for project use and distribution.                         |
+| README.md                | File   | Main project overview, setup, usage, and roadmap.                           |
 
-## Quickstart
+<a id="quickstart"></a>
+
+## 6. Quickstart
 
 ### 1. Create and activate a virtual environment
 
@@ -172,7 +184,9 @@ PowerShell helper:
 
 All generated media is saved to output.
 
-## Script Breakdown
+<a id="script-breakdown"></a>
+
+## 7. Script Breakdown
 
 ### 1) Beginner: OpenCV Motion Basics
 
@@ -243,7 +257,9 @@ Outputs:
 - output/advanced_video_with_sound.mp4 when FFmpeg is available
 - output/temp_video.mp4 and output/temp_audio.wav as fallback artifacts if FFmpeg is missing
 
-## Render Pipeline Notes
+<a id="render-pipeline-notes"></a>
+
+## 8. Render Pipeline Notes
 
 Pipeline order in advanced workflow:
 
@@ -258,7 +274,9 @@ Why this structure matters:
 - Makes debugging easier when one stage fails
 - Scales better when you add transitions or post effects
 
-## Learning Path
+<a id="learning-path"></a>
+
+## 9. Learning Path
 
 Detailed progression and practice tasks are in docs/learning_path.md.
 
@@ -269,7 +287,9 @@ Suggested flow:
 3. Extend advanced_video.py with a new custom scene
 4. Build your own reusable effect modules under src
 
-## Troubleshooting
+<a id="troubleshooting"></a>
+
+## 10. Troubleshooting
 
 ### FFmpeg not found
 
@@ -301,7 +321,9 @@ Practical options:
 - Shorten duration while iterating
 - Reduce resolution during draft runs
 
-## Roadmap
+<a id="roadmap"></a>
+
+## 11. Roadmap
 
 - Add subtitle/caption style presets
 - Add transition utilities (slide, wipe, blur, zoom)
@@ -309,7 +331,7 @@ Practical options:
 - Add export presets for Shorts, Reels, TikTok, and 16:9 YouTube
 - Add reusable module layout: effects.py, titles.py, transitions.py, presets.py
 
-## Project Status
+## 12. Project Status
 
 Active learning project with production-oriented examples.
 
@@ -317,13 +339,17 @@ Best use case:
 
 - Developers and creators who want to learn animation engineering while building publishable video content.
 
-## Contributing
+<a id="contributing"></a>
+
+## 13. Contributing
 
 Contributions are welcome.
 
 - Contributor guide: CONTRIBUTING.md
 - Suggested first tasks: transition presets, CLI flags, and reusable effect modules
 
-## License
+<a id="license"></a>
+
+## 14. License
 
 MIT License. See LICENSE.
