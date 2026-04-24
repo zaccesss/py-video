@@ -10,19 +10,22 @@ This repository is designed as a practical learning lab:
 
 ## Quick Navigation
 
-- [Overview](#overview)
-- [Why This Project](#why-this-project)
-- [Features](#features)
-- [Tech Stack](#tech-stack)
-- [Project Structure](#project-structure)
-- [Quickstart](#quickstart)
-- [Script Breakdown](#script-breakdown)
-- [Render Pipeline Notes](#render-pipeline-notes)
-- [Learning Path](#learning-path)
-- [Troubleshooting](#troubleshooting)
-- [Roadmap](#roadmap)
-- [Contributing](#contributing)
-- [License](#license)
+<p align="center">
+	🔎 <b>Quick navigation:</b>
+	<a href="#overview">Overview</a> •
+	<a href="#why-this-project">Why This Project</a> •
+	<a href="#features">Features</a> •
+	<a href="#tech-stack">Tech Stack</a> •
+	<a href="#project-structure">Project Structure</a> •
+	<a href="#quickstart">Quickstart</a> •
+	<a href="#script-breakdown">Script Breakdown</a> •
+	<a href="#render-pipeline-notes">Render Pipeline Notes</a> •
+	<a href="#learning-path">Learning Path</a> •
+	<a href="#troubleshooting">Troubleshooting</a> •
+	<a href="#roadmap">Roadmap</a> •
+	<a href="#contributing">Contributing</a> •
+	<a href="#license">License</a>
+</p>
 
 ## Overview
 
@@ -73,20 +76,53 @@ Many creative coding examples show visuals only. This project focuses on end-to-
 
 ```text
 py-video/
-|-- src/
-|   |-- simple_animation.py
-|   |-- python_video_test.py
-|   `-- advanced_video.py
-|-- docs/
-|   `-- learning_path.md
-|-- scripts/
-|   `-- run_all.ps1
-|-- output/
-|   `-- (generated media files)
+|-- src/                     # Source scripts for video generation
+|   |-- simple_animation.py  # Beginner OpenCV animation example
+|   |-- python_video_test.py # MoviePy timeline-based text video example
+|   `-- advanced_video.py    # Multi-scene OpenCV + generated audio pipeline
+|-- docs/                    # Learning and documentation assets
+|   |-- learning_path.md     # Step-by-step learning roadmap
+|   `-- previews/            # Short preview clips embedded in README/project pages
+|       |-- simple_preview.mp4
+|       `-- advanced_preview.mp4
+|-- scripts/                 # Utility scripts for local workflow
+|   `-- run_all.ps1          # PowerShell helper to run all three demos
+|-- output/                  # Generated render outputs (ignored by git)
+|   |-- my_first_animation.mp4
+|   |-- temp_video.mp4
+|   `-- temp_audio.wav
+|-- .editorconfig            # Editor consistency rules (indentation/newlines)
+|-- .gitattributes           # Git line-ending and binary file handling rules
 |-- requirements.txt
 |-- .gitignore
+|-- CHANGELOG.md
+|-- CONTRIBUTING.md
+|-- LICENSE
 `-- README.md
 ```
+
+### Structure Details
+
+| Path | Type | Purpose |
+| --- | --- | --- |
+| src/ | Folder | Core Python scripts that generate videos and audio. |
+| src/simple_animation.py | File | Beginner script for frame-by-frame OpenCV animation in vertical format. |
+| src/python_video_test.py | File | Intermediate MoviePy example for timeline/text compositing. |
+| src/advanced_video.py | File | Advanced scene-based renderer with procedural soundtrack and FFmpeg muxing. |
+| docs/ | Folder | Documentation and visual learning resources. |
+| docs/learning_path.md | File | Learning progression and practice tasks for building animation skills. |
+| docs/previews/ | Folder | Short preview clips used for showcasing output quickly. |
+| scripts/ | Folder | Workflow helpers for local execution. |
+| scripts/run_all.ps1 | File | Runs all demo scripts in sequence from PowerShell. |
+| output/ | Folder | Rendered assets created by scripts (video/audio outputs). |
+| requirements.txt | File | Python dependency list required for all scripts. |
+| .gitignore | File | Prevents generated outputs and cache files from polluting commits. |
+| .editorconfig | File | Standardizes editor behavior across environments. |
+| .gitattributes | File | Enforces line ending strategy and binary handling in git. |
+| CHANGELOG.md | File | Versioned log of notable project changes. |
+| CONTRIBUTING.md | File | Contribution process and commit style guidance. |
+| LICENSE | File | MIT license terms for project use and distribution. |
+| README.md | File | Main project overview, setup, usage, and roadmap. |
 
 ## Quickstart
 
