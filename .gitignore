@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.venv/
+venv/
+
+# Build/cache artifacts
+*.log
+.pytest_cache/
+.mypy_cache/
+
+# Video and audio outputs
+output/*.mp4
+output/*.wav
+output/*.mov
+output/*.avi
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/settings.json
