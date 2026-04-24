@@ -1,45 +1,122 @@
 # Python Animation Video Lab
 
-Create short-form animations and content videos with Python.
+Learn Python animation and content-video production from first render to social-ready exports.
 
-This repo is organized for learning in stages:
+This repository is designed as a practical learning lab:
 
-- Beginner: basic OpenCV animation loop and moving text
-- Intermediate: simple MoviePy text-video workflow
-- Advanced: multi-scene OpenCV video with generated audio + FFmpeg muxing
+- Beginner foundation with OpenCV frame-by-frame animation
+- Intermediate timeline compositing with MoviePy
+- Advanced scene system with generated audio and FFmpeg muxing
+
+## Quick Navigation
+
+- [Overview](#overview)
+- [Why This Project](#why-this-project)
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Project Structure](#project-structure)
+- [Quickstart](#quickstart)
+- [Script Breakdown](#script-breakdown)
+- [Render Pipeline Notes](#render-pipeline-notes)
+- [Learning Path](#learning-path)
+- [Troubleshooting](#troubleshooting)
+- [Roadmap](#roadmap)
+- [Contributing](#contributing)
+- [License](#license)
+
+## Overview
+
+Python Animation Video Lab is a creator-focused starter project for building short-form animated content with code.
+It helps you move from one-file scripts to reusable scene systems while still shipping real videos quickly.
+
+Target outcomes:
+
+- Understand time-based animation math with Python
+- Build scene-driven video structure for longer content
+- Generate and sync audio with video
+- Produce reusable workflow patterns for TikTok, Reels, Shorts, and long-form edits
+
+## Why This Project
+
+Many creative coding examples show visuals only. This project focuses on end-to-end content production:
+
+- Render loop design
+- Text and shape animation techniques
+- Scene transitions and pacing
+- Audio generation and muxing
+- Practical output handling for publish workflows
+
+## Features
+
+- Vertical video rendering (1080x1920) for short-form platforms
+- Procedural gradients, particles, wave fields, and wireframe motion
+- Dynamic text overlays and timed message changes
+- Scene-based architecture for advanced projects
+- Procedural music generation using NumPy + SciPy
+- FFmpeg integration for audio/video merge
+- Clean output directory for generated assets
+
+## Tech Stack
+
+- Python 3.10+
+- OpenCV (`opencv-python`)
+- NumPy
+- SciPy
+- MoviePy
+- FFmpeg (system dependency for audio muxing)
 
 ## Project Structure
 
-- `src/simple_animation.py` - 10-second vertical animation with gradients, text, and particles
-- `src/python_video_test.py` - 10-second 1080p text sequence using MoviePy
-- `src/advanced_video.py` - 30-second multi-scene animation with generated WAV music
-- `output/` - rendered videos and temporary media files
-- `docs/learning_path.md` - step-by-step learning roadmap
-- `requirements.txt` - Python dependencies
+```text
+py-video/
+|-- src/
+|   |-- simple_animation.py
+|   |-- python_video_test.py
+|   `-- advanced_video.py
+|-- docs/
+|   `-- learning_path.md
+|-- scripts/
+|   `-- run_all.ps1
+|-- output/
+|   `-- (generated media files)
+|-- requirements.txt
+|-- .gitignore
+`-- README.md
+```
 
-## Quick Start
+## Quickstart
 
-1. Create and activate a virtual environment:
+### 1. Create and activate a virtual environment
+
+Windows PowerShell:
 
 ```bash
 python -m venv .venv
-# Windows PowerShell
 .venv\Scripts\Activate.ps1
 ```
 
-2. Install dependencies:
+macOS/Linux:
+
+```bash
+python -m venv .venv
+source .venv/bin/activate
+```
+
+### 2. Install dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-3. (Optional but recommended) Install FFmpeg and verify:
+### 3. Install FFmpeg (recommended)
+
+Verify installation:
 
 ```bash
 ffmpeg -version
 ```
 
-4. Run a script:
+### 4. Run scripts
 
 ```bash
 python src/simple_animation.py
@@ -47,98 +124,166 @@ python src/python_video_test.py
 python src/advanced_video.py
 ```
 
-All generated media is saved into `output/`.
-
-## Script Details
-
-### 1) Beginner: Simple OpenCV Animation
-
-Command:
+PowerShell helper:
 
 ```bash
-python src/simple_animation.py
+./scripts/run_all.ps1
 ```
+
+All generated media is saved to output.
+
+## Script Breakdown
+
+### 1) Beginner: OpenCV Motion Basics
+
+Script: src/simple_animation.py
+
+What it does:
+
+- Creates a 10-second vertical animation
+- Uses color-shifting gradients and bouncing title text
+- Adds subtitle timing and circular particle motion
 
 What you learn:
 
-- Frame-by-frame rendering with NumPy arrays
-- Time-based motion using sine functions
-- Drawing text, shadows, and simple particles with OpenCV
-- Vertical video setup for TikTok/Reels (1080x1920)
+- Frame loop fundamentals
+- Sine-based motion control
+- OpenCV text rendering with shadows
+- Basic visual layering
 
 Output:
 
-- `output/my_first_animation.mp4`
+- output/my_first_animation.mp4
 
-### 2) Intermediate: MoviePy Text Video
+### 2) Intermediate: MoviePy Timeline Composition
 
-Command:
+Script: src/python_video_test.py
 
-```bash
-python src/python_video_test.py
-```
+What it does:
+
+- Builds a 10-second 1080p text sequence
+- Composites timed clips over a background layer
 
 What you learn:
 
-- Building clips and compositing layers in MoviePy
-- Timing text changes using start/duration
-- Quick export settings for fast iteration
+- Timeline-driven composition
+- Clip start and duration control
+- Fast iteration export settings
 
 Output:
 
-- `output/python_test_video.mp4`
+- output/python_test_video.mp4
 
-### 3) Advanced: Multi-Scene + Music
+### 3) Advanced: Multi-Scene Animation + Audio
 
-Command:
+Script: src/advanced_video.py
 
-```bash
-python src/advanced_video.py
-```
+What it does:
+
+- Builds a 30-second, four-scene vertical animation
+- Generates a WAV soundtrack procedurally
+- Muxes audio/video to final MP4 using FFmpeg
+
+Scene set:
+
+- Scene 1: particle explosion intro
+- Scene 2: wave field motion
+- Scene 3: rotating wireframe cube
+- Scene 4: animated text finale
 
 What you learn:
 
-- Multi-scene animation architecture
-- Procedural music generation (NumPy + SciPy)
-- Combining video and audio with FFmpeg
-- Managing temporary render files
+- Scene architecture and timeline segmentation
+- Reusable animation function design
+- Procedural audio basics
+- FFmpeg-based production pipeline
 
 Outputs:
 
-- `output/advanced_video_with_sound.mp4` (if FFmpeg is installed)
-- `output/temp_video.mp4` and `output/temp_audio.wav` if FFmpeg is missing
+- output/advanced_video_with_sound.mp4 when FFmpeg is available
+- output/temp_video.mp4 and output/temp_audio.wav as fallback artifacts if FFmpeg is missing
 
-## Publish to GitHub
+## Render Pipeline Notes
 
-From the project root:
+Pipeline order in advanced workflow:
 
-```bash
-git init
-git add .
-git commit -m "init: organize python animation video lab"
-git branch -M main
-git remote add origin <your-repo-url>
-git push -u origin main
-```
+1. Generate audio waveform and write WAV
+2. Render frames to temporary MP4
+3. Mux temporary MP4 + WAV into final MP4 with AAC audio
+4. Remove temporary files when mux succeeds
 
-Suggested repo description:
+Why this structure matters:
 
-"Learn Python animation and content-video creation with OpenCV, MoviePy, and procedural audio. Includes beginner-to-advanced examples for short-form vertical video workflows."
+- Keeps visual generation independent from audio generation
+- Makes debugging easier when one stage fails
+- Scales better when you add transitions or post effects
 
-Suggested topics:
+## Learning Path
 
-- `python`
-- `opencv`
-- `moviepy`
-- `video-generation`
-- `animation`
-- `content-creation`
-- `ffmpeg`
-- `creative-coding`
+Detailed progression and practice tasks are in docs/learning_path.md.
 
-## Next Improvements
+Suggested flow:
 
-- Add subtitle templates and caption styles
-- Add transition helpers (slide, wipe, blur)
-- Add audio-reactive visual effects
-- Add export presets for YouTube Shorts, Reels, TikTok, and 16:9
+1. Start with simple_animation.py and modify timing/colors/text
+2. Move to python_video_test.py for timeline mindset
+3. Extend advanced_video.py with a new custom scene
+4. Build your own reusable effect modules under src
+
+## Troubleshooting
+
+### FFmpeg not found
+
+Symptoms:
+
+- Advanced script finishes frame rendering but warns about missing FFmpeg
+
+Fix:
+
+- Install FFmpeg and ensure it is in system PATH
+- Re-run advanced script
+
+### MoviePy text rendering issues
+
+Symptoms:
+
+- Text clip creation errors or missing font rendering
+
+Fix:
+
+- Confirm MoviePy installation and available local fonts
+- Try replacing font name in src/python_video_test.py
+
+### Slow renders on laptop hardware
+
+Practical options:
+
+- Lower fps from 30 to 24
+- Shorten duration while iterating
+- Reduce resolution during draft runs
+
+## Roadmap
+
+- Add subtitle/caption style presets
+- Add transition utilities (slide, wipe, blur, zoom)
+- Add beat-synced and audio-reactive effects
+- Add export presets for Shorts, Reels, TikTok, and 16:9 YouTube
+- Add reusable module layout: effects.py, titles.py, transitions.py, presets.py
+
+## Project Status
+
+Active learning project with production-oriented examples.
+
+Best use case:
+
+- Developers and creators who want to learn animation engineering while building publishable video content.
+
+## Contributing
+
+Contributions are welcome.
+
+- Contributor guide: CONTRIBUTING.md
+- Suggested first tasks: transition presets, CLI flags, and reusable effect modules
+
+## License
+
+MIT License. See LICENSE.
