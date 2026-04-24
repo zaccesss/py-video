@@ -16,6 +16,7 @@ output/*.mp4
 output/*.wav
 output/*.mov
 output/*.avi
+docs/previews/
 
 # OS/editor
 .DS_Store
