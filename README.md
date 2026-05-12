@@ -357,7 +357,7 @@ MIT License. See LICENSE.
 
 ## Contact and Support
 
-Open an [issue](https://github.com/zaccessss/py-video/issues) in this repository for questions or bugs.
+Open an [issue](https://github.com/zaccesss/py-video/issues) in this repository for questions or bugs.
 
 You can also reach me directly at [code@isaacadjei.me](mailto:code@isaacadjei.me) or via my [website contact page](https://isaacadjei.me/contact).
 
