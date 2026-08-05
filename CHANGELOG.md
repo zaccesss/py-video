@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 ## [2026-08-05]
 
+### Added
+
+- A markdown alert callout in the README noting that a missing FFmpeg silently changes the advanced script's output.
+
 ### Changed
 
 - Rewrote README to drop the animated banner and animated tech stack icon, fix a broken MoviePy logo link, document the content_example.py script and remove duplicated project structure and status sections.
