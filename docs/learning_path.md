@@ -25,7 +25,27 @@ Concepts:
 - Smooth looping with `sin` and `cos`
 - Rendering text and shapes every frame
 
-## Stage 2: Compositing Mindset (1 day)
+## Stage 2: Content Card Patterns (1 day)
+
+Run:
+
+```bash
+python src/content_example.py
+```
+
+Practice tasks:
+
+- Change the fact list and timing
+- Adjust the easing curve
+- Try a different color palette
+
+Concepts:
+
+- Easing functions for smoother motion
+- Timed content pacing across a fixed frame count
+- Card-style layout patterns
+
+## Stage 3: Compositing Mindset (1 day)
 
 Run:
 
@@ -45,7 +65,7 @@ Concepts:
 - Layer compositing
 - Fast export loop for iteration
 
-## Stage 3: Scene Systems (2-3 days)
+## Stage 4: Scene Systems (2-3 days)
 
 Run:
 
@@ -65,7 +85,7 @@ Concepts:
 - Reusable scene functions
 - Structured render loop control
 
-## Stage 4: Audio + Delivery (1 day)
+## Stage 5: Audio + Delivery (1 day)
 
 Practice tasks:
 
@@ -79,7 +99,7 @@ Concepts:
 - Render pipeline reliability
 - Final output checks before upload
 
-## Stage 5: Build a Content Template System (ongoing)
+## Stage 6: Build a Content Template System (ongoing)
 
 Create reusable modules:
 

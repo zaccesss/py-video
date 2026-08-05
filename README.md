@@ -1,108 +1,50 @@
 # Python Animation Video Lab
 
-Learn Python animation and content-video production from first render to social-ready exports.
+A practical learning lab for building short-form animated content with Python, moving from single-file scripts to a reusable, scene-based render pipeline while still shipping real videos quickly.
 
-This repository is designed as a practical learning lab:
+## Overview
 
-- Beginner foundation with OpenCV frame-by-frame animation
-- Intermediate timeline compositing with MoviePy
-- Advanced scene system with generated audio and FFmpeg muxing
-
-## Quick Navigation
-
-<p align="center">
-	🔎 <b>Quick navigation:</b>
-	<a href="#overview">Overview</a> •
-	<a href="#why-this-project">Why This Project</a> •
-	<a href="#features">Features</a> •
-	<a href="#tech-stack">Tech Stack</a> •
-	<a href="#project-structure">Project Structure</a> •
-	<a href="#quickstart">Quickstart</a> •
-	<a href="#script-breakdown">Script Breakdown</a> •
-	<a href="#render-pipeline-notes">Render Pipeline Notes</a> •
-	<a href="#learning-path">Learning Path</a> •
-	<a href="#troubleshooting">Troubleshooting</a> •
-	<a href="#roadmap">Roadmap</a> •
-	<a href="#contributing">Contributing</a> •
-	<a href="#license">License</a>
-</p>
-
-<a id="overview"></a>
-
-## 1. Overview
-
-Python Animation Video Lab is a creator-focused starter project for building short-form animated content with code.
-It helps you move from one-file scripts to reusable scene systems while still shipping real videos quickly.
-
-Target outcomes:
-
-- Understand time-based animation math with Python
-- Build scene-driven video structure for longer content
-- Generate and sync audio with video
-- Produce reusable workflow patterns for TikTok, Reels, Shorts, and long-form edits
-
-<a id="why-this-project"></a>
-
-## 2. Why This Project
-
-Many creative coding examples show visuals only. This project focuses on end-to-end content production:
+This project focuses on end-to-end video production, not just visuals:
 
 - Render loop design
 - Text and shape animation techniques
 - Scene transitions and pacing
 - Audio generation and muxing
-- Practical output handling for publish workflows
+- Output handling for platforms like TikTok, Reels, Shorts and 16:9 YouTube
 
-<a id="features"></a>
-
-## 3. Features
+## Features
 
 - Vertical video rendering (1080x1920) for short-form platforms
-- Procedural gradients, particles, wave fields, and wireframe motion
+- Procedural gradients, particles, wave fields and wireframe motion
 - Dynamic text overlays and timed message changes
 - Scene-based architecture for advanced projects
-- Procedural music generation using NumPy + SciPy
-- FFmpeg integration for audio/video merge
+- Procedural music generation with NumPy and SciPy
+- FFmpeg integration for audio/video muxing
 - Clean output directory for generated assets
 
-<a id="tech-stack"></a>
+## Tech Stack
 
-## 4. Tech Stack
+Python 3.10+, OpenCV, NumPy, SciPy, MoviePy and FFmpeg.
 
-<div align="center">
+FFmpeg on the system PATH is recommended for audio muxing in the advanced pipeline.
 
-| <img src="https://techstack-generator.vercel.app/python-icon.svg" width="65" /> | <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opencv/opencv-original.svg" width="65" /> | <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg" width="65" /> | <img src="https://upload.wikimedia.org/wikipedia/commons/b/b2/SCIPY_2.svg" width="65" /> | <img src="https://raw.githubusercontent.com/Zulko/moviepy/master/docs/_static/logo_small.jpeg" width="65" /> | <img src="https://cdn.simpleicons.org/ffmpeg/007808" width="65" /> |
-| :-----------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------: |
-|                                   **Python**                                    |                                               **OpenCV**                                               |                                              **NumPy**                                               |                                        **SciPy**                                         |                                                 **MoviePy**                                                  |                             **FFmpeg**                             |
-
-</div>
-
-- Python 3.10+
-- FFmpeg installed on system PATH is recommended for audio muxing in the advanced pipeline
-
-<a id="project-structure"></a>
-
-## 5. Project Structure
+## Project Structure
 
 ```text
 py-video/
-|-- src/                     # Source scripts for video generation
-|   |-- simple_animation.py  # Beginner OpenCV animation example
-|   |-- python_video_test.py # MoviePy timeline-based text video example
-|   `-- advanced_video.py    # Multi-scene OpenCV + generated audio pipeline
-|-- docs/                    # Learning and documentation assets
-|   |-- learning_path.md     # Step-by-step learning roadmap
-|   `-- previews/            # Short preview clips embedded in README/project pages
-|       |-- simple_preview.mp4
-|       `-- advanced_preview.mp4
-|-- scripts/                 # Utility scripts for local workflow
-|   `-- run_all.ps1          # PowerShell helper to run all three demos
-|-- output/                  # Generated render outputs (ignored by git)
-|   |-- my_first_animation.mp4
-|   |-- temp_video.mp4
-|   `-- temp_audio.wav
-|-- .editorconfig            # Editor consistency rules (indentation/newlines)
-|-- .gitattributes           # Git line-ending and binary file handling rules
+|-- src/                       # Source scripts for video generation
+|   |-- simple_animation.py    # Beginner OpenCV animation example
+|   |-- content_example.py     # OpenCV facts-card content video example
+|   |-- python_video_test.py   # MoviePy timeline-based text video example
+|   `-- advanced_video.py      # Multi-scene OpenCV + generated audio pipeline
+|-- docs/                      # Learning and documentation assets
+|   |-- learning_path.md       # Step-by-step learning roadmap
+|   `-- previews/              # Local preview clips (generated, not committed)
+|-- scripts/                   # Utility scripts for local workflow
+|   `-- run_all.ps1            # PowerShell helper to run all demos
+|-- output/                    # Generated render outputs (ignored by git)
+|-- .editorconfig              # Editor consistency rules (indentation/newlines)
+|-- .gitattributes             # Git line-ending and binary file handling rules
 |-- requirements.txt
 |-- .gitignore
 |-- CHANGELOG.md
@@ -111,32 +53,7 @@ py-video/
 `-- README.md
 ```
 
-### Structure Details
-
-| Path                     | Type   | Purpose                                                                     |
-| ------------------------ | ------ | --------------------------------------------------------------------------- |
-| src/                     | Folder | Core Python scripts that generate videos and audio.                         |
-| src/simple_animation.py  | File   | Beginner script for frame-by-frame OpenCV animation in vertical format.     |
-| src/python_video_test.py | File   | Intermediate MoviePy example for timeline/text compositing.                 |
-| src/advanced_video.py    | File   | Advanced scene-based renderer with procedural soundtrack and FFmpeg muxing. |
-| docs/                    | Folder | Documentation and visual learning resources.                                |
-| docs/learning_path.md    | File   | Learning progression and practice tasks for building animation skills.      |
-| docs/previews/           | Folder | Short preview clips used for showcasing output quickly.                     |
-| scripts/                 | Folder | Workflow helpers for local execution.                                       |
-| scripts/run_all.ps1      | File   | Runs all demo scripts in sequence from PowerShell.                          |
-| output/                  | Folder | Rendered assets created by scripts (video/audio outputs).                   |
-| requirements.txt         | File   | Python dependency list required for all scripts.                            |
-| .gitignore               | File   | Prevents generated outputs and cache files from polluting commits.          |
-| .editorconfig            | File   | Standardizes editor behavior across environments.                           |
-| .gitattributes           | File   | Enforces line ending strategy and binary handling in git.                   |
-| CHANGELOG.md             | File   | Versioned log of notable project changes.                                   |
-| CONTRIBUTING.md          | File   | Contribution process and commit style guidance.                             |
-| LICENSE                  | File   | MIT license terms for project use and distribution.                         |
-| README.md                | File   | Main project overview, setup, usage, and roadmap.                           |
-
-<a id="quickstart"></a>
-
-## 6. Quickstart
+## Quickstart
 
 ### 1. Create and activate a virtual environment
 
@@ -172,25 +89,24 @@ ffmpeg -version
 
 ```bash
 python src/simple_animation.py
+python src/content_example.py
 python src/python_video_test.py
 python src/advanced_video.py
 ```
 
-PowerShell helper:
+PowerShell helper for all demos:
 
 ```bash
 ./scripts/run_all.ps1
 ```
 
-All generated media is saved to output.
+All generated media is saved to `output/`.
 
-<a id="script-breakdown"></a>
-
-## 7. Script Breakdown
+## Script Breakdown
 
 ### 1) Beginner: OpenCV Motion Basics
 
-Script: src/simple_animation.py
+Script: `src/simple_animation.py`
 
 What it does:
 
@@ -198,45 +114,58 @@ What it does:
 - Uses color-shifting gradients and bouncing title text
 - Adds subtitle timing and circular particle motion
 
-What you learn:
+What it teaches:
 
 - Frame loop fundamentals
 - Sine-based motion control
 - OpenCV text rendering with shadows
 - Basic visual layering
 
-Output:
+Output: `output/my_first_animation.mp4`
 
-- output/my_first_animation.mp4
+### 2) Content Example: Facts-Card Video
 
-### 2) Intermediate: MoviePy Timeline Composition
+Script: `src/content_example.py`
 
-Script: src/python_video_test.py
+What it does:
+
+- Renders a 15-second vertical facts-card video in the style of educational short-form content
+- Animates a rotating set of two-line facts with eased transitions and a progress bar
+
+What it teaches:
+
+- Easing functions for smoother motion
+- Timed content pacing across a fixed frame count
+- Layout patterns for card-style short-form videos
+
+Output: `output/content_example.mp4`
+
+### 3) Intermediate: MoviePy Timeline Composition
+
+Script: `src/python_video_test.py`
 
 What it does:
 
 - Builds a 10-second 1080p text sequence
 - Composites timed clips over a background layer
 
-What you learn:
+What it teaches:
 
 - Timeline-driven composition
 - Clip start and duration control
 - Fast iteration export settings
 
-Output:
+Output: `output/python_test_video.mp4`
 
-- output/python_test_video.mp4
+### 4) Advanced: Multi-Scene Animation and Audio
 
-### 3) Advanced: Multi-Scene Animation + Audio
-
-Script: src/advanced_video.py
+Script: `src/advanced_video.py`
 
 What it does:
 
 - Builds a 30-second, four-scene vertical animation
 - Generates a WAV soundtrack procedurally
-- Muxes audio/video to final MP4 using FFmpeg
+- Muxes audio and video to a final MP4 using FFmpeg
 
 Scene set:
 
@@ -245,7 +174,7 @@ Scene set:
 - Scene 3: rotating wireframe cube
 - Scene 4: animated text finale
 
-What you learn:
+What it teaches:
 
 - Scene architecture and timeline segmentation
 - Reusable animation function design
@@ -254,113 +183,55 @@ What you learn:
 
 Outputs:
 
-- output/advanced_video_with_sound.mp4 when FFmpeg is available
-- output/temp_video.mp4 and output/temp_audio.wav as fallback artifacts if FFmpeg is missing
+- `output/advanced_video_with_sound.mp4` when FFmpeg is available
+- `output/temp_video.mp4` and `output/temp_audio.wav` as fallback artifacts if FFmpeg is missing
 
-<a id="render-pipeline-notes"></a>
+## Render Pipeline Notes
 
-## 8. Render Pipeline Notes
-
-Pipeline order in advanced workflow:
+Pipeline order in the advanced workflow:
 
 1. Generate audio waveform and write WAV
-2. Render frames to temporary MP4
-3. Mux temporary MP4 + WAV into final MP4 with AAC audio
-4. Remove temporary files when mux succeeds
+2. Render frames to a temporary MP4
+3. Mux the temporary MP4 and WAV into a final MP4 with AAC audio
+4. Remove temporary files once the mux succeeds
 
-Why this structure matters:
+This keeps visual generation independent from audio generation, makes debugging easier when one stage fails and scales better when adding transitions or post effects.
 
-- Keeps visual generation independent from audio generation
-- Makes debugging easier when one stage fails
-- Scales better when you add transitions or post effects
+## Learning Path
 
-<a id="learning-path"></a>
+A staged progression with practice tasks for each script lives in `docs/learning_path.md`, moving from core motion basics through compositing, scene systems, audio delivery and a reusable content template system.
 
-## 9. Learning Path
-
-Detailed progression and practice tasks are in docs/learning_path.md.
-
-Suggested flow:
-
-1. Start with simple_animation.py and modify timing/colors/text
-2. Move to python_video_test.py for timeline mindset
-3. Extend advanced_video.py with a new custom scene
-4. Build your own reusable effect modules under src
-
-<a id="troubleshooting"></a>
-
-## 10. Troubleshooting
+## Troubleshooting
 
 ### FFmpeg not found
 
-Symptoms:
-
-- Advanced script finishes frame rendering but warns about missing FFmpeg
-
-Fix:
-
-- Install FFmpeg and ensure it is in system PATH
-- Re-run advanced script
+The advanced script finishes frame rendering but warns about missing FFmpeg. Install FFmpeg, make sure it is on the system PATH, then re-run the advanced script.
 
 ### MoviePy text rendering issues
 
-Symptoms:
-
-- Text clip creation errors or missing font rendering
-
-Fix:
-
-- Confirm MoviePy installation and available local fonts
-- Try replacing font name in src/python_video_test.py
+Text clip creation errors or missing font rendering usually mean MoviePy or a local font is missing. Confirm the MoviePy installation and try a different font name in `src/python_video_test.py`.
 
 ### Slow renders on laptop hardware
 
-Practical options:
+Lower the fps from 30 to 24, shorten the duration while iterating or reduce resolution during draft runs.
 
-- Lower fps from 30 to 24
-- Shorten duration while iterating
-- Reduce resolution during draft runs
-
-<a id="roadmap"></a>
-
-## 11. Roadmap
+## Roadmap
 
 - Add subtitle/caption style presets
 - Add transition utilities (slide, wipe, blur, zoom)
 - Add beat-synced and audio-reactive effects
-- Add export presets for Shorts, Reels, TikTok, and 16:9 YouTube
-- Add reusable module layout: effects.py, titles.py, transitions.py, presets.py
+- Add export presets for Shorts, Reels, TikTok and 16:9 YouTube
+- Add reusable module layout: `effects.py`, `titles.py`, `transitions.py`, `presets.py`
+- Add CLI flags for duration, fps and resolution
 
-## 12. Project Status
+## Contributing
 
-Active learning project with production-oriented examples.
+Contributions are welcome. See `CONTRIBUTING.md` for the branch, commit and pull request conventions. Good first tasks include transition presets, CLI flags and reusable effect modules.
 
-Best use case:
+## License
 
-- Developers and creators who want to learn animation engineering while building publishable video content.
-
-<a id="contributing"></a>
-
-## 13. Contributing
-
-Contributions are welcome.
-
-- Contributor guide: CONTRIBUTING.md
-- Suggested first tasks: transition presets, CLI flags, and reusable effect modules
-
-<a id="license"></a>
-
-## 14. License
-
-MIT License. See LICENSE.
-
+MIT License. See `LICENSE`.
 
 ## Contact and Support
 
-Open an [issue](https://github.com/zaccesss/py-video/issues) in this repository for questions or bugs.
-
-You can also reach me directly at [code@isaacadjei.me](mailto:code@isaacadjei.me) or via my [website contact page](https://isaacadjei.me/contact).
-
-<p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=80&section=footer" />
-</p>
+Open an [issue](https://github.com/zaccesss/py-video/issues) in this repository for questions or bugs, or reach out at [code@isaacadjei.me](mailto:code@isaacadjei.me) or through the [website contact page](https://isaacadjei.me/contact).
