@@ -36,7 +36,7 @@ Examples:
 
 - update: improve wave scene color blending
 - fix: handle ffmpeg missing path more clearly
-- refacr: split scene rendering helpers
+- refactor: split scene rendering helpers
 
 ## Pull request checklist
 
