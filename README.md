@@ -85,6 +85,11 @@ Verify installation:
 ffmpeg -version
 ```
 
+> [!IMPORTANT]
+> If FFmpeg is missing, `src/advanced_video.py` does not fail. It silently falls back to
+> separate `output/temp_video.mp4` and `output/temp_audio.wav` files instead of the single
+> muxed `output/advanced_video_with_sound.mp4`. Install FFmpeg first to get the real output.
+
 ### 4. Run scripts
 
 ```bash
