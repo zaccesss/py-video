@@ -14,7 +14,7 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
-- Add CLI flags for duration, fps, and resolution.
+- Add CLI flags for duration, fps and resolution.
 - Add reusable animation modules.
 - Add transition presets.
 
@@ -22,8 +22,8 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
-- Structured repository layout with src, docs, scripts, and output.
-- Beginner, intermediate, and advanced animation scripts.
+- Structured repository layout with src, docs, scripts and output.
+- Beginner, intermediate and advanced animation scripts.
 - Contributor guide and MIT license.
 - Detailed README and learning path.
 - Preview media assets under docs/previews.
