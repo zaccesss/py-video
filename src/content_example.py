@@ -192,7 +192,7 @@ def create_content_example():
         if (frame_num + 1) % FPS == 0:
             sec = (frame_num + 1) // FPS
             fact_i = min(int(sec / (DURATION / len(FACTS))), len(FACTS) - 1)
-            print(f"  {sec}s/{DURATION}s  —  fact {fact_i + 1}/{len(FACTS)}")
+            print(f"  {sec}s/{DURATION}s  -  fact {fact_i + 1}/{len(FACTS)}")
 
     out.release()
     print(f"\n✅ Saved: {output_file}")
