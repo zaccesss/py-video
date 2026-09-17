@@ -14,6 +14,14 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+### Added
+
+- CODEOWNERS, SECURITY.md, CODE_OF_CONDUCT.md and SUPPORT.md.
+- Markdown lint CI workflow with its own `.markdownlint.json` and workflows README.
+- YAML issue forms for bug reports and feature requests, a pull request template and an issue template config disabling blank issues.
+
+### Planned
+
 - Add CLI flags for duration, fps and resolution.
 - Add reusable animation modules.
 - Add transition presets.
