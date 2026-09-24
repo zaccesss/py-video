@@ -19,11 +19,11 @@ def generate_music(duration=30, sample_rate=44100, output_path=None):
     
     t = np.linspace(0, duration, int(sample_rate * duration))
     
-    # Bass line (low frequency)
+    # bass line (low frequency)
     bass_freq = 110  # A2 note
     bass = 0.3 * np.sin(2 * np.pi * bass_freq * t)
     
-    # Melody (changes every 2 seconds)
+    # melody (changes every 2 seconds)
     melody = np.zeros_like(t)
     notes = [220, 247, 262, 294, 330, 349, 392, 440]  # A3 to A4 scale
     
@@ -32,21 +32,21 @@ def generate_music(duration=30, sample_rate=44100, output_path=None):
         end = int((i + 1) * len(t) / len(notes))
         melody[start:end] = 0.2 * np.sin(2 * np.pi * freq * t[start:end])
     
-    # Hi-hat (percussion) - short clicks every beat
+    # hi-hat (percussion) - short clicks every beat
     hihat = np.zeros_like(t)
     beat_interval = sample_rate // 2  # 2 beats per second
     for i in range(0, len(t), beat_interval):
         if i + 1000 < len(t):
             hihat[i:i+1000] = 0.1 * np.random.randn(1000)
     
-    # Mix all tracks
+    # mix all tracks
     audio = bass + melody + hihat
     
-    # Normalize
+    # normalize
     audio = audio / np.max(np.abs(audio))
     audio = (audio * 32767).astype(np.int16)
     
-    # Save as WAV
+    # save as WAV
     if output_path is None:
         output_path = Path("temp_audio.wav")
 
@@ -63,12 +63,12 @@ def create_scene_1(frame_num, width, height, fps):
     frame = np.zeros((height, width, 3), dtype=np.uint8)
     time = frame_num / fps
     
-    # Dark blue gradient background
+    # dark blue gradient background
     for y in range(height):
         intensity = int(20 + (y / height) * 30)
         frame[y, :] = (intensity * 2, intensity, intensity // 2)
     
-    # Exploding particles
+    # exploding particles
     num_particles = 100
     for i in range(num_particles):
         angle = (i / num_particles) * 2 * math.pi
@@ -85,7 +85,7 @@ def create_scene_1(frame_num, width, height, fps):
                 cv2.circle(frame, (x, y), size, 
                           (color_val, color_val // 2, 255), -1)
     
-    # Title appears
+    # title appears
     if time > 1:
         alpha = min(1, (time - 1) / 1)
         text = "ADVANCED"
@@ -106,7 +106,7 @@ def create_scene_2(frame_num, width, height, fps, scene_start):
     frame = np.zeros((height, width, 3), dtype=np.uint8)
     time = (frame_num - scene_start) / fps
     
-    # Create wave pattern
+    # create wave pattern
     for y in range(height):
         for x in range(0, width, 5):
             wave = math.sin(x * 0.02 + time * 3) * 50
@@ -117,7 +117,7 @@ def create_scene_2(frame_num, width, height, fps, scene_start):
             
             frame[y, x:x+5] = (intensity // 3, intensity // 2, intensity)
     
-    # Text
+    # text
     text = "PYTHON POWER"
     text_size = cv2.getTextSize(text, cv2.FONT_HERSHEY_SIMPLEX, 2.5, 5)[0]
     text_x = (width - text_size[0]) // 2
@@ -135,54 +135,54 @@ def create_scene_3(frame_num, width, height, fps, scene_start):
     frame = np.zeros((height, width, 3), dtype=np.uint8)
     time = (frame_num - scene_start) / fps
     
-    # Black background with subtle gradient
+    # black background with subtle gradient
     for y in range(height):
         intensity = int(10 + (y / height) * 20)
         frame[y, :] = (intensity, intensity, intensity)
     
-    # Rotating cube wireframe
+    # rotating cube wireframe
     center_x, center_y = width // 2, height // 2
     size = 300
     
     # 3D rotation
     angle = time * 1.5
     
-    # Define cube vertices
+    # define cube vertices
     vertices = [
-        [-1, -1, -1], [1, -1, -1], [1, 1, -1], [-1, 1, -1],  # Back
-        [-1, -1, 1], [1, -1, 1], [1, 1, 1], [-1, 1, 1]       # Front
+        [-1, -1, -1], [1, -1, -1], [1, 1, -1], [-1, 1, -1],  # back
+        [-1, -1, 1], [1, -1, 1], [1, 1, 1], [-1, 1, 1]       # front
     ]
     
-    # Rotate and project
+    # rotate and project
     rotated = []
     for v in vertices:
-        # Rotate around Y axis
+        # rotate around Y axis
         x = v[0] * math.cos(angle) - v[2] * math.sin(angle)
         z = v[0] * math.sin(angle) + v[2] * math.cos(angle)
         y = v[1]
         
-        # Rotate around X axis
+        # rotate around X axis
         y2 = y * math.cos(angle * 0.7) - z * math.sin(angle * 0.7)
         z2 = y * math.sin(angle * 0.7) + z * math.cos(angle * 0.7)
         
-        # Project to 2D
+        # project to 2D
         scale = 200 / (3 + z2)
         x2d = int(center_x + x * scale)
         y2d = int(center_y + y2 * scale)
         rotated.append((x2d, y2d))
     
-    # Draw cube edges
+    # draw cube edges
     edges = [
-        (0, 1), (1, 2), (2, 3), (3, 0),  # Back face
-        (4, 5), (5, 6), (6, 7), (7, 4),  # Front face
-        (0, 4), (1, 5), (2, 6), (3, 7)   # Connecting edges
+        (0, 1), (1, 2), (2, 3), (3, 0),  # back face
+        (4, 5), (5, 6), (6, 7), (7, 4),  # front face
+        (0, 4), (1, 5), (2, 6), (3, 7)   # connecting edges
     ]
     
     for edge in edges:
         cv2.line(frame, rotated[edge[0]], rotated[edge[1]], 
                 (255, 100, 200), 3, cv2.LINE_AA)
     
-    # Draw vertices
+    # draw vertices
     for point in rotated:
         cv2.circle(frame, point, 8, (255, 255, 0), -1)
     
@@ -193,14 +193,14 @@ def create_scene_4(frame_num, width, height, fps, scene_start):
     frame = np.zeros((height, width, 3), dtype=np.uint8)
     time = (frame_num - scene_start) / fps
     
-    # Colorful gradient
+    # colorful gradient
     for y in range(height):
         r = int(127 + 127 * math.sin(time + y * 0.01))
         g = int(127 + 127 * math.sin(time + y * 0.01 + 2))
         b = int(127 + 127 * math.sin(time + y * 0.01 + 4))
         frame[y, :] = (b, g, r)
     
-    # Multiple text lines
+    # multiple text lines
     messages = [
         "CREATED WITH",
         "PYTHON + OPENCV",
@@ -212,16 +212,16 @@ def create_scene_4(frame_num, width, height, fps, scene_start):
     for i, msg in enumerate(messages):
         y_pos = 200 + i * 150
         
-        # Wavy animation
+        # wavy animation
         offset_x = int(50 * math.sin(time * 2 + i))
         
         text_size = cv2.getTextSize(msg, cv2.FONT_HERSHEY_SIMPLEX, 2, 4)[0]
         text_x = (width - text_size[0]) // 2 + offset_x
         
-        # Shadow
+        # shadow
         cv2.putText(frame, msg, (text_x + 4, y_pos + 4), 
                    cv2.FONT_HERSHEY_SIMPLEX, 2, (0, 0, 0), 6, cv2.LINE_AA)
-        # Main text
+        # main text
         cv2.putText(frame, msg, (text_x, y_pos), 
                    cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 255, 255), 4, cv2.LINE_AA)
     
@@ -230,8 +230,8 @@ def create_scene_4(frame_num, width, height, fps, scene_start):
 def create_advanced_video():
     print("🎬 Creating ADVANCED 30-second video with music!")
     
-    # Settings
-    width, height = 1080, 1920  # Vertical
+    # settings
+    width, height = 1080, 1920  # vertical
     fps = 30
     duration = 30
     total_frames = fps * duration
@@ -244,17 +244,17 @@ def create_advanced_video():
     temp_video_file = output_dir / "temp_video.mp4"
     final_output_file = output_dir / "advanced_video_with_sound.mp4"
     
-    # Generate music first
+    # generate music first
     audio_file = generate_music(duration, output_path=temp_audio_file)
     
-    # Create video
+    # create video
     output_video = str(temp_video_file)
     fourcc = cv2.VideoWriter_fourcc(*'mp4v')
     out = cv2.VideoWriter(output_video, fourcc, fps, (width, height))
     
     print(f"📹 Rendering {total_frames} frames with 4 scenes...")
     
-    # Scene timings (in frames)
+    # scene timings (in frames)
     scene_1_end = fps * 6
     scene_2_end = fps * 12
     scene_3_end = fps * 18
@@ -278,7 +278,7 @@ def create_advanced_video():
     out.release()
     print("✅ Video rendered!")
     
-    # Combine video and audio using ffmpeg
+    # combine video and audio using ffmpeg
     print("🎵 Adding music to video...")
     import subprocess
     
@@ -306,7 +306,7 @@ def create_advanced_video():
         print(f"   - 3D rotating cube")
         print(f"   - Colorful finale")
         
-        # Clean up temp files
+        # clean up temp files
         import os
         os.remove(output_video)
         os.remove(audio_file)

@@ -18,10 +18,10 @@ TOTAL_FRAMES = FPS * DURATION
 
 # --- Color palette (BGR) ---
 ACCENT       = (0, 180, 255)      # Gold/amber
-ACCENT_CYAN  = (255, 200, 60)     # Teal progress bar
+ACCENT_CYAN  = (255, 200, 60)     # teal progress bar
 WHITE        = (255, 255, 255)
 DIM          = (160, 160, 160)
-DARK         = (30, 25, 20)       # Near-black warm tone
+DARK         = (30, 25, 20)       # near-black warm tone
 GRID_DOT     = (55, 50, 45)
 DOT_INACTIVE = (70, 70, 70)
 
@@ -56,14 +56,14 @@ def draw_text_centered(frame, text, y, scale, color, thickness, shadow=True):
 
 
 def draw_background(frame, t):
-    # Warm dark gradient top to bottom
+    # warm dark gradient top to bottom
     for y in range(HEIGHT):
         r = int(22 + 10 * (y / HEIGHT))
         g = int(18 + 8 * (y / HEIGHT))
         b = int(28 + 12 * (y / HEIGHT))
         frame[y, :] = [b, g, r]  # BGR
 
-    # Animated subtle dot grid
+    # animated subtle dot grid
     spacing = 90
     for gy in range(spacing, HEIGHT, spacing):
         for gx in range(spacing, WIDTH, spacing):
@@ -76,9 +76,9 @@ def draw_background(frame, t):
 
 
 def draw_header(frame):
-    # Top accent line
+    # top accent line
     cv2.line(frame, (100, 185), (WIDTH - 100, 185), ACCENT, 2, cv2.LINE_AA)
-    # Label
+    # label
     draw_text_centered(frame, "PYTHON  FACTS", 160, 1.05, ACCENT, 2, shadow=False)
 
 
@@ -86,7 +86,7 @@ def draw_fact(frame, t, fact_index):
     fact_duration = DURATION / len(FACTS)
     fact_t = (t - fact_index * fact_duration) / fact_duration  # 0-1 within current fact
 
-    # Fade envelope
+    # fade envelope
     if fact_t < 0.18:
         alpha = ease_in_out(fact_t / 0.18)
     elif fact_t > 0.82:
@@ -94,26 +94,26 @@ def draw_fact(frame, t, fact_index):
     else:
         alpha = 1.0
 
-    # Slide up on entry
+    # slide up on entry
     slide = int(40 * (1.0 - ease_in_out(min(fact_t / 0.22, 1.0))))
 
     line1, line2 = FACTS[fact_index]
     cy = HEIGHT // 2
 
-    # Line 1: dimmer label
+    # line 1: dimmer label
     draw_text_centered(frame, line1, cy - 55 + slide, 1.55,
                        alpha_color(DIM, alpha), 2)
 
-    # Line 2: main bold statement
+    # line 2: main bold statement
     _, x2 = draw_text_centered(frame, line2, cy + 45 + slide, 2.3,
                                 alpha_color(WHITE, alpha), 4)
 
-    # Animated underline beneath line 2
+    # animated underline beneath line 2
     font = cv2.FONT_HERSHEY_SIMPLEX
     (tw, _), _ = cv2.getTextSize(line2, font, 2.3, 4)
     ux = (WIDTH - tw) // 2
     uy = cy + 90 + slide
-    # Draw from left to right based on alpha
+    # draw from left to right based on alpha
     line_end = ux + int(tw * ease_in_out(min(fact_t / 0.35, 1.0)))
     if line_end > ux:
         cv2.line(frame, (ux, uy), (line_end, uy),
@@ -139,15 +139,15 @@ def draw_progress_bar(frame, progress):
     margin = 80
     bar_w = WIDTH - margin * 2
 
-    # Track
+    # track
     cv2.rectangle(frame, (margin, bar_y - 3),
                   (margin + bar_w, bar_y + 3), (50, 45, 40), -1)
-    # Fill
+    # fill
     filled = int(bar_w * progress)
     if filled > 0:
         cv2.rectangle(frame, (margin, bar_y - 3),
                       (margin + filled, bar_y + 3), ACCENT_CYAN, -1)
-        # Glowing tip
+        # glowing tip
         tip_x = margin + filled
         for r, a in [(10, 0.15), (6, 0.3), (3, 1.0)]:
             cv2.circle(frame, (tip_x, bar_y), r, alpha_color(ACCENT_CYAN, a), -1, cv2.LINE_AA)
