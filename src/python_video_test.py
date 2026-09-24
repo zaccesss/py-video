@@ -10,15 +10,15 @@ from pathlib import Path
 def create_test_video():
     print("🎬 Starting Python video generation...")
     
-    # Video settings
+    # video settings
     duration = 10  # seconds
     width, height = 1920, 1080
     fps = 30
     
-    # Create black background
+    # create black background
     background = ColorClip(size=(width, height), color=(0, 0, 0), duration=duration)
     
-    # Create animated text that changes every 2 seconds
+    # create animated text that changes every 2 seconds
     texts = [
         "Python Video Test",
         "10 Second Demo",
@@ -32,7 +32,7 @@ def create_test_video():
     for i, text in enumerate(texts):
         start_time = i * 2
         
-        # Create text clip
+        # create text clip
         txt_clip = TextClip(
             text,
             fontsize=80,
@@ -45,10 +45,10 @@ def create_test_video():
         
         clips.append(txt_clip)
     
-    # Composite all clips
+    # composite all clips
     final_video = CompositeVideoClip(clips, size=(width, height))
     
-    # Export
+    # export
     project_root = Path(__file__).resolve().parent.parent
     output_dir = project_root / "output"
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -60,7 +60,7 @@ def create_test_video():
         fps=fps,
         codec='libx264',
         audio=False,
-        preset='ultrafast'  # Faster rendering
+        preset='ultrafast'  # faster rendering
     )
     
     print(f"✅ Python video created: {output_file}")

@@ -13,8 +13,8 @@ from pathlib import Path
 def create_animated_video():
     print("🎬 Creating your animated video...")
     
-    # Settings
-    width, height = 1080, 1920  # Vertical for TikTok/Instagram
+    # settings
+    width, height = 1080, 1920  # vertical for TikTok/Instagram
     fps = 30
     duration = 10
     total_frames = fps * duration
@@ -24,23 +24,23 @@ def create_animated_video():
     output_dir.mkdir(parents=True, exist_ok=True)
     output_file = output_dir / "my_first_animation.mp4"
     
-    # Video writer
+    # video writer
     fourcc = cv2.VideoWriter_fourcc(*'mp4v')
     out = cv2.VideoWriter(str(output_file), fourcc, fps, (width, height))
     
     print(f"📹 Rendering {total_frames} frames...")
     
     for frame_num in range(total_frames):
-        # Create gradient background that changes color
+        # create gradient background that changes color
         frame = np.zeros((height, width, 3), dtype=np.uint8)
         
-        # Animated rainbow gradient
+        # animated rainbow gradient
         time = frame_num / fps
         r = int(127 + 127 * math.sin(time * 2))
         g = int(127 + 127 * math.sin(time * 2 + 2))
         b = int(127 + 127 * math.sin(time * 2 + 4))
         
-        # Create gradient from top to bottom
+        # create gradient from top to bottom
         for y in range(height):
             color_factor = y / height
             color = (
@@ -50,30 +50,30 @@ def create_animated_video():
             )
             frame[y, :] = color
         
-        # Bouncing text animation
+        # bouncing text animation
         bounce_height = 200 * abs(math.sin(time * 3))
         text_y = int(height // 2 - bounce_height)
         
-        # Pulsing size
+        # pulsing size
         scale = 2.5 + 0.5 * math.sin(time * 4)
         
-        # Main text
+        # main text
         text = "MY FIRST VIDEO!"
         font = cv2.FONT_HERSHEY_SIMPLEX
         
-        # Get text size
+        # get text size
         text_size = cv2.getTextSize(text, font, scale, 5)[0]
         text_x = (width - text_size[0]) // 2
         
-        # Draw shadow
+        # draw shadow
         cv2.putText(frame, text, (text_x + 5, text_y + 5), font, scale,
                    (0, 0, 0), 8, cv2.LINE_AA)
         
-        # Draw white text
+        # draw white text
         cv2.putText(frame, text, (text_x, text_y), font, scale,
                    (255, 255, 255), 5, cv2.LINE_AA)
         
-        # Subtitle that changes
+        # subtitle that changes
         messages = [
             "Welcome!",
             "This is Python!",
@@ -92,7 +92,7 @@ def create_animated_video():
         cv2.putText(frame, subtitle, (sub_x, sub_y), 
                    cv2.FONT_HERSHEY_SIMPLEX, 1.5, (255, 255, 255), 3, cv2.LINE_AA)
         
-        # Animated circle particles
+        # animated circle particles
         num_circles = 5
         for i in range(num_circles):
             angle = (time + i) * 2
@@ -104,10 +104,10 @@ def create_animated_video():
             cv2.circle(frame, (circle_x, circle_y), circle_size, 
                       (255, 255, 255), -1)
         
-        # Write frame
+        # write frame
         out.write(frame)
         
-        # Progress
+        # progress
         if (frame_num + 1) % 30 == 0:
             progress = ((frame_num + 1) * 100) // total_frames
             print(f"  {progress}% done...")
