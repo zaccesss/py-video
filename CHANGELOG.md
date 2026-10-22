@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file.
 
+## [Unreleased]
+
+### Planned
+
+- Add CLI flags for duration, fps and resolution.
+- Add reusable animation modules.
+- Add transition presets.
+
+## [0.0.1] - 2026-10-22
+
+### Added
+
+- CODEOWNERS, SECURITY.md, CODE_OF_CONDUCT.md and SUPPORT.md.
+- Markdown lint CI workflow with its own `.markdownlint.json` and workflows README.
+- YAML issue forms for bug reports and feature requests, a pull request template and an issue template config disabling blank issues.
+
 ## [2026-08-05]
 
 ### Added
@@ -11,20 +27,6 @@ All notable changes to this project will be documented in this file.
 ### Changed
 
 - Rewrote README to drop the animated banner and animated tech stack icon, fix a broken MoviePy logo link, document the content_example.py script and remove duplicated project structure and status sections.
-
-## [Unreleased]
-
-### Added
-
-- CODEOWNERS, SECURITY.md, CODE_OF_CONDUCT.md and SUPPORT.md.
-- Markdown lint CI workflow with its own `.markdownlint.json` and workflows README.
-- YAML issue forms for bug reports and feature requests, a pull request template and an issue template config disabling blank issues.
-
-### Planned
-
-- Add CLI flags for duration, fps and resolution.
-- Add reusable animation modules.
-- Add transition presets.
 
 ## [2026-04-24]
 
