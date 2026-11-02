@@ -7,7 +7,7 @@
 > [!IMPORTANT]
 > If you discover a security vulnerability in this repository, do not open a public issue or pull request.
 
-Report it privately to: **contact@isaacadjei.me**
+Report it privately to: **security@isaacadjei.me**
 
 Please include:
 

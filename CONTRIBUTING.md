@@ -58,3 +58,7 @@ Examples:
 - Add text animation presets
 - Add platform output presets (9:16, 1:1, 16:9)
 - Add CLI arguments for duration/resolution/fps
+
+## Using AI
+
+AI tools are welcome within my [AI policy](https://github.com/zaccesss/ai-policy), also [on my site](https://isaacadjei.me/ai-policy). **Every pull request must say how AI was used, even when the answer is None.** Write your own issue and pull request titles and descriptions, understand everything you submit and test it before you open it.
