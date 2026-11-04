@@ -34,15 +34,15 @@ pip install -r requirements.txt
 
 Examples:
 
-- update: improve wave scene color blending
+- update: improve wave scene colour blending
 - fix: handle ffmpeg missing path more clearly
 - refactor: split scene rendering helpers
 
 ## Pull request checklist
 
 - Explain the problem and solution clearly
-- Include before/after behavior notes
-- Keep README/docs updated if behavior changes
+- Include before/after behaviour notes
+- Keep README/docs updated if behaviour changes
 - Avoid committing generated media in output/
 
 ## Code style notes
@@ -50,7 +50,7 @@ Examples:
 - Keep functions focused and readable
 - Prefer explicit variable names for timeline math
 - Add comments only when logic is non-obvious
-- Preserve existing script behavior unless PR scope requires changes
+- Preserve existing script behaviour unless PR scope requires changes
 
 ## Suggested contribution ideas
 

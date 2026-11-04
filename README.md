@@ -2,6 +2,10 @@
 
 A practical learning lab for building short-form animated content with Python, moving from single-file scripts to a reusable, scene-based render pipeline while still shipping real videos quickly.
 
+[![Markdown Lint](https://github.com/zaccesss/py-video/actions/workflows/markdownlint.yml/badge.svg)](https://github.com/zaccesss/py-video/actions/workflows/markdownlint.yml)
+[![Release](https://img.shields.io/github/v/release/zaccesss/py-video?label=release)](https://github.com/zaccesss/py-video/releases/latest)
+[![Licence: MIT](https://img.shields.io/badge/licence-MIT-green.svg)](LICENSE)
+
 ## Overview
 
 This project focuses on end-to-end video production, not just visuals:
@@ -116,7 +120,7 @@ Script: `src/simple_animation.py`
 What it does:
 
 - Creates a 10-second vertical animation
-- Uses color-shifting gradients and bouncing title text
+- Uses colour-shifting gradients and bouncing title text
 - Adds subtitle timing and circular particle motion
 
 What it teaches:
@@ -200,6 +204,18 @@ Pipeline order in the advanced workflow:
 3. Mux the temporary MP4 and WAV into a final MP4 with AAC audio
 4. Remove temporary files once the mux succeeds
 
+```mermaid
+flowchart LR
+    SCRIPT["src/advanced_video.py"] --> AUDIO["Generate the soundtrack<br/>NumPy and SciPy"]
+    SCRIPT --> FRAMES["Render the four scenes<br/>OpenCV, frame by frame"]
+    AUDIO --> WAV["output/temp_audio.wav"]
+    FRAMES --> MP4["output/temp_video.mp4"]
+    WAV --> FF{"FFmpeg on the PATH?"}
+    MP4 --> FF
+    FF -- "yes" --> FINAL["output/advanced_video_with_sound.mp4<br/>AAC audio, temporary files removed"]
+    FF -- "no" --> KEEP["The two temporary files stay<br/>as the only output"]
+```
+
 This keeps visual generation independent from audio generation, makes debugging easier when one stage fails and scales better when adding transitions or post effects.
 
 ## Learning Path
@@ -233,16 +249,16 @@ Lower the fps from 30 to 24, shorten the duration while iterating or reduce reso
 
 Contributions are welcome. See `CONTRIBUTING.md` for the branch, commit and pull request conventions. Good first tasks include transition presets, CLI flags and reusable effect modules.
 
-## License
+## Licence
 
-MIT License. See `LICENSE`.
+[MIT](LICENSE).
 
 ## Contact and Support
 
 Open an [issue](https://github.com/zaccesss/py-video/issues) in this repository for questions or bugs. See [SUPPORT.md](SUPPORT.md) for the full breakdown of where to go.
 
 > [!TIP]
-> Reach me directly at [code@isaacadjei.me](mailto:code@isaacadjei.me) or through the [website contact page](https://isaacadjei.me/contact).
+> Reach me directly at [contact@isaacadjei.me](mailto:contact@isaacadjei.me) or through the [website contact page](https://isaacadjei.me/contact).
 
 > [!IMPORTANT]
 > For a security issue, follow [SECURITY.md](SECURITY.md) rather than posting publicly.

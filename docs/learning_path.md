@@ -37,7 +37,7 @@ Practice tasks:
 
 - Change the fact list and timing
 - Adjust the easing curve
-- Try a different color palette
+- Try a different colour palette
 
 Concepts:
 
@@ -57,7 +57,7 @@ Practice tasks:
 
 - Add more text clips and stagger timing
 - Change typography and font size
-- Add a second background color segment
+- Add a second background colour segment
 
 Concepts:
 
